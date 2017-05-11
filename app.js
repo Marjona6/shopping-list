@@ -5,7 +5,8 @@
 // the state object
 // currently populated with a test list
 // production version will be blank so users can input everything themselves
-var state = [
+var state = {
+	items: [
 	{
 		name: "apples",
 		checked: false
@@ -27,45 +28,46 @@ var state = [
 		checked: true
 	}
 	]
+}
 
 // ADD ITEMS
 // add user input to the array
 // default bool value is false (unchecked)
 function addItem(state, itemToBeAdded) {
 	// check if targeting is working
-	alert("I've just activated the addItem() function");
+	// alert("I've just activated the addItem() function");
 // button type="submit" under form id="js-shopping-list-form"
 // on click, activates function addItem()
 	state.items.push(itemToBeAdded);
 	// check if targeting is working:
 }
 
-// DELETE ITEMS
+// DELETE ITEMS--
 // remove item at index x from the array
 function deleteItem(state, itemName) {
 	// check if targeting is working
-	alert("I've just activated the deleteItem() function");
+	// alert("I've just activated the deleteItem() function");
 // button class="shopping-item-delete" under span class="shopping-item"
 // on click, activates function deleteItem()
 	var index;
 	for (var i=0; i < state.items.length; i++) {
 		// find the item with the same name as the item we want to delete
-		if (itemArray[i].name === itemName) {
+		if (state.items[i].name === itemName) {
 			// this is the index of the item we want to delete
 			index = i;
 		}
 	}
-	itemArray.splice(index, 1);
+	state.items.splice(index, 1);
 
 }
 
-// CHECK/UNCHECK ITEMS
+// CHECK/UNCHECK ITEMS--this works!
 // toggle the bool value
 // true becomes false
 // false becomes true
 function checkUncheckItem(state, itemName) {
 	// check if targeting is working
-	alert("I have activated the function checkUncheckItem()");
+	//alert("I have activated the function checkUncheckItem()");
 // button class="shopping-item-toggle" under span class="shopping-item"
 // on click, activates function checkUncheckItem()
 	// find the item in the array of items that has the name of
@@ -169,7 +171,7 @@ $(document).ready(function() {
 		// delete the item from the array (call function deleteItem())
 		deleteItem(state, itemName);
 		// render the list again because there was a change to state
-	})
 	renderList(state);
+	})
 
 })
